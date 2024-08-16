@@ -24,13 +24,10 @@ The GitHub Actions workflow is configured to trigger on a `push` or `pull_reques
 Here's an example of a GitHub Actions workflow (`.github/workflows/deploy.yml`) that deploys a Docker container:
 
 ```yaml
-name: Deploy Docker Container
+name: Deploy to Azure Container Apps
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -39,30 +36,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Log in to Docker Hub
+        run: |
+          echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/your docker hub image name:latest ./your code directory name
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/your docker hub image name:latest
+   
 
-    - name: Build and Push Docker Image
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-container:${{ github.sha }}
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Log out of Docker Hub
-      run: docker logout
+      - name: Deploy to Azure Container Apps
+        run: |
+          az containerapp update \
+            --name your azure container name \
+            --resource-group your azure resource group name \
+            --image ${{ secrets.DOCKER_HUB_USERNAME }}/your docker hub image name:latest
+
 ```
 ## After This You can create a Image with the following Command ##
 ```bash
