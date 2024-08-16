@@ -76,4 +76,5 @@ docker buildx build --platform linux/amd64 -t $DOCKERHUB_USERNAME/IMAGE_NAME:lat
 
 ## References ##
  - Github Action : <a>https://docs.github.com/en/actions/about-github-actions/understanding-github-actions</a>
+ - Deploy to Azure Container Apps with GitHub Actions : <a>https://learn.microsoft.com/en-us/azure/container-apps/github-actions</a>
 
