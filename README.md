@@ -84,17 +84,17 @@ docker buildx build --platform linux/amd64 -t $DOCKERHUB_USERNAME/IMAGE_NAME:lat
    ```bash
     az group create --name myresourcegroup --location eastus
     ```
-  Create Container App Environment:
+ - Create Container App Environment:
 
   ```bash
   az containerapp env create --name mycontainerappenv --resource-group myresourcegroup --location eastus
   ```
-  Create the Service Principal:
+ - Create the Service Principal:
 
   ```bash
   az ad sp create-for-rbac --name "myServicePrincipal" --role contributor --scopes /subscriptions/{subscription-id} --sdk-auth
   ```
-  Example:
+ - Example:
 
   ```bash
   {
