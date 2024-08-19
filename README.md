@@ -98,7 +98,7 @@ docker buildx build --platform linux/amd64 -t $DOCKERHUB_USERNAME/IMAGE_NAME:lat
 
   ```bash
   {
-      "clientId": "e7f8c3bd-fe7c-484d-bd022a-2892edf151e5",
+      "clientId": "e7f8c3bd-fe7c-484d-hmhbd022a-2892edf151e5",
       "clientSecret": "xas8Q~t4Kb4tlQ-eh222o~Esr_z2kAMkM6ybcsgGag_",
       "subscriptionId": "06ddb3b9-9f0ba-4e1b-9e0e-1190ba64ff07",
       "tenantId": "e5d64a62-32ec6e-4a87-84fa-d64cda031416",
