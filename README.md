@@ -86,30 +86,30 @@ docker buildx build --platform linux/amd64 -t $DOCKERHUB_USERNAME/IMAGE_NAME:lat
     ```
  - Create Container App Environment:
 
-  ```bash
-  az containerapp env create --name mycontainerappenv --resource-group myresourcegroup --location eastus
-  ```
+    ```bash
+    az containerapp env create --name mycontainerappenv --resource-group myresourcegroup --location eastus
+    ```
  - Create the Service Principal:
 
-  ```bash
-  az ad sp create-for-rbac --name "myServicePrincipal" --role contributor --scopes /subscriptions/{subscription-id} --sdk-auth
-  ```
+    ```bash
+    az ad sp create-for-rbac --name "myServicePrincipal" --role contributor --scopes /subscriptions/{subscription-id} --sdk-auth
+    ```
  - Example:
 
-  ```bash
-  {
-      "clientId": "e7f8c3bd-fe7c-484d-hmhbd022a-2892edf151e5",
-      "clientSecret": "xas8Q~t4Kb4tlQ-eh222o~Esr_z2kAMkM6ybcsgGag_",
-      "subscriptionId": "06ddb3b9-9f0ba-4e1b-9e0e-1190ba64ff07",
-      "tenantId": "e5d64a62-32ec6e-4a87-84fa-d64cda031416",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"
-   }
-  ```
+    ```bash
+    {
+        "clientId": "e7f8c3bd-fe7c-484d-hmhbd022a-2892edf151e5",
+        "clientSecret": "xas8Q~t4Kb4tlQ-eh222o~Esr_z2kAMkM6ybcsgGag_",
+        "subscriptionId": "06ddb3b9-9f0ba-4e1b-9e0e-1190ba64ff07",
+        "tenantId": "e5d64a62-32ec6e-4a87-84fa-d64cda031416",
+        "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+        "resourceManagerEndpointUrl": "https://management.azure.com/",
+        "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+        "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+        "galleryEndpointUrl": "https://gallery.azure.com/",
+        "managementEndpointUrl": "https://management.core.windows.net/"
+    }
+    ```
 
 
 ## References ##
