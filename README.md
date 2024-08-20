@@ -67,7 +67,11 @@ jobs:
 ```
 ## After This You can create a Image with the following Command ##
 ```bash
-docker buildx build --platform linux/amd64 -t $DOCKERHUB_USERNAME/IMAGE_NAME:latest --push .
+docker compose up 
+```
+
+```bash
+docker compose push
 ```
   - This Command Creates a Image and also Push This Image to Docker Hub
   - After This When Its Creates Image or Pushed To Docker Hub
