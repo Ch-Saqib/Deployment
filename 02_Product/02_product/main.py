@@ -5,4 +5,4 @@ app: FastAPI = FastAPI(root_path="/product")
 
 @app.get("/")
 def get_data():
-    return {"message": "Hello World From Product Service 02"}
+    return {"message": "Hello From Product Service 02"}

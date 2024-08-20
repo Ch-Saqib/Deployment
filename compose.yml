@@ -9,10 +9,12 @@ x-kong-config: &kong-env
 ############-----API-------######################
 services:
   api1:
+    image: raptortrader/deployment-01:latest
     container_name: API-1
     build:
       context: ./01_User
       dockerfile: Dockerfile
+    platform: linux/amd64
     ports:
       - 8090:8090
     volumes:
@@ -20,9 +22,11 @@ services:
 
   api2:
     container_name: API-2
+    image: raptortrader/deployment-02:latest
     build:
       context: ./02_Product
       dockerfile: Dockerfile
+    platform: linux/amd64
     ports:
       - 8091:8091
     volumes:
